@@ -6,7 +6,8 @@ const createIntern = async function (req, res) {
     try {
         let data = req.body
         let saved = await internModel.create(data)
-        res.status(201).send({ status: true, message: "intern created", data: saved })
+        let result = await internModel.find(saved).select({ __v: 0 })
+        res.status(201).send({ status: true, message: "intern created", data: result })
     }
     catch (error) {
         return res.status(500).send({ error: error.message })
@@ -16,9 +17,13 @@ const createIntern = async function (req, res) {
 const getCollege = async function (req, res) {
     try {
         let name = req.query.collegeName
+        if (name.length == 0) return res.status(400).send({ status: false, message: "Please provide a college name" })
+
         if (!name) return res.status(400).send({ status: false, message: "Must enter college name" })
 
         let college = await collegeModel.findOne({ name: name })
+        if (!college) return res.status(400).send({ status: false, message: "This college doesn't exist" })
+
         let interns = await internModel.find({ collegeId: college._id }).select({ "name": 1, "email": 1, "mobile": 1 })
         if (!interns) return res.status(404).send({ status: false, message: "No interns available for this College" })
 
@@ -33,6 +38,6 @@ const getCollege = async function (req, res) {
     }
 }
 
-module.exports.getCollege = getCollege
 
 module.exports.createIntern = createIntern
+module.exports.getCollege = getCollege
