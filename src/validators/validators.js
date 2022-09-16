@@ -1,12 +1,11 @@
 // -----------------  REGEX  ----------------------------
 const mongoose = require("mongoose")
-const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const isValidEmail = function (mail) {
     if (/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(mail)) {
       return true;
     }
-  };
+  }
   
   const isValidName = function(name){
     if (/^[A-Za-z]{1,35}/.test(name)) return true
@@ -31,7 +30,6 @@ const isValidEmail = function (mail) {
   const isValidId = function (id) {
     return mongoose.Types.ObjectId.isValid(id);
   };
-  
 
-  module.exports ={ isValidEmail, isValidBody, isValidName, isValidUrl, isValidNumber, isValidId }
+module.exports ={ isValidEmail, isValidBody, isValidName, isValidUrl, isValidNumber, isValidId }
   

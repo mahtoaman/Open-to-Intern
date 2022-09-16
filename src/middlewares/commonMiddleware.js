@@ -12,7 +12,6 @@ const collegeValidator = async function (req, res, next) {
     if (!name || !isValidName(name.trim())) return res.status(400).send({ status: false, message: "Enter name in valid format" })
 
     let result = await collegeModel.findOne({ name: name })
-    console.log(result)
     if (result) return res.status(400).send({ status: true, message: "This college already exist! " })
 
     if (!fullName || !isValidName(fullName.trim())) return res.status(400).send({ status: false, message: "Enter fullName in valid format" })
@@ -37,7 +36,7 @@ const internValidator = async function (req, res, next) {
     let isUniqueMob = await internModel.findOne({mobile:mobile}) 
     if(isUniqueMob) return res.status(400).send({ status: false, message: "This Mobile Nubmer is already registered" })
 
-    if (!collegeName || !isValidName(collegeName.trim())) return res.status(400).send({ status: false, message: "Enter collegeId in valid format" })
+    if (!collegeName || !isValidName(collegeName.trim())) return res.status(400).send({ status: false, message: "Enter collegeName in valid format" })
 
     let isValidCollege = await collegeModel.findOne({ name :collegeName});
     if(!isValidCollege) return res.status(400).send({ status: false, message: "Provided College does not exists" })

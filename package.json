@@ -1,11 +1,7 @@
 {
   "name": "open-to-intern",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "- Create a group database `groupXDatabase`. You can clean the db you previously used and resue that.\r - This time each group should have a *single git branch*. Coordinate amongst yourselves by ensuring every next person pulls the code last pushed by a team mate. You branch will be checked as part of the demo. Branch name should follow the naming convention `project/internshipGroupX`\r - Follow the naming conventions exactly as instructed. The backend code will be integrated with the front-end application which means any mismatch in the expected request body will lead to failure in successful integration.",
-=======
   "description": "This is our second project at functionUp.",
->>>>>>> 76c150165d0d212ba32cf013c0e245c38dae12ce
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,10 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/mahtoaman/Open-to-Intern.git"
   },
-<<<<<<< HEAD
-=======
   "keywords": [],
->>>>>>> 76c150165d0d212ba32cf013c0e245c38dae12ce
   "author": "",
   "license": "ISC",
   "bugs": {
