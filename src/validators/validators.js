@@ -29,7 +29,7 @@ const isValidEmail = function (mail) {
 
   const isValidId = function (id) {
     return mongoose.Types.ObjectId.isValid(id);
-  };
+  }
 
 module.exports ={ isValidEmail, isValidBody, isValidName, isValidUrl, isValidNumber, isValidId }
   

@@ -30,7 +30,6 @@ const getCollege = async function (req, res) {
         return res.status(200).send({ status: true, message: "list of interns", data: internDetails })
     }
     catch (error) {
-        console.log(typeof error)
         return res.status(500).send({ error: error.message })
     }
 }
