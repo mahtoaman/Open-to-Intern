@@ -2,6 +2,7 @@ const internModel = require("../models/internModel.js")
 const collegeModel = require("../models/collegeModel.js")
 
 const createIntern = async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
         let data = req.body
         let name = await collegeModel.findOne({name :data.collegeName}).select({_id : 1})
@@ -15,6 +16,7 @@ const createIntern = async function (req, res) {
 }
 
 const getCollege = async function (req, res) {
+    res.setHeader('Access-Control-Allow-Origin','*')
     try {
         let name = req.query.collegeName
         if (!name) return res.status(400).send({ status: false, message: "Must enter college name" })
